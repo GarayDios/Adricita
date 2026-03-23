@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("uni.jpg");
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0,0,0,0.6);
+    background-blend-mode: darken;
+    min-height: 100vh;
+}
+
+/* TITULO */
+.titulo {
+    text-align: center;
+    padding: 15px 0 5px 0;   /* ← padding en lugar de margin */
+    font-size: 35px;
+    color: white;
+}
+
+/* CONTADOR */
+.contador {
+    text-align: center;
+    margin-bottom: 8px;
+    color: white;
+    font-size: 14px;
+}
+
+/* BOTÓN */
+.btn-musica {
+    display: block;
+    margin: 6px auto 10px auto;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    background: pink;
+    cursor: pointer;
+}
+
+/* GALERÍA */
+.contenedor {
+    display: flex;
+    gap: 15px;
+    padding: 0 15px 15px 15px;   /* ← sin padding-top extra */
+}
+
+.columna {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.columna img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.columna img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px pink;
+}
+
+/* LIGHTBOX */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 999;
+}
+
+#lightbox img {
+    max-width: 80%;
+    max-height: 80vh;
+    border-radius: 15px;
+}
+
+#mensaje {
+    margin-top: 10px;
+    color: white;
+    font-size: 18px;
+}
+
+/* SECRETO */
+.secreto {
+    text-align: center;
+    margin: 10px 0;
+}
+
+#pantallaSecreta {
+    display: none;
+    text-align: center;
+    margin: 10px 0;
+}
+
+#pantallaSecreta input {
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    margin-right: 8px;
+}
+
+#pantallaSecreta button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    background: pink;
+    cursor: pointer;
+}
+
+#mensajeSecreto {
+    display: none;
+    text-align: center;
+    margin: 20px;
+    color: white;
+    font-size: 18px;
+}
+
+/* CORAZONES */
+.corazones span {
+    position: fixed;
+    bottom: 0;
+    font-size: 20px;
+    animation: subir 5s linear;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes subir {
+    to {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+/* RESPONSIVE */
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 24px;
+        padding: 12px 0 4px 0;
+    }
+
+    .contador {
+        font-size: 13px;
+    }
+
+    .contenedor {
+        flex-direction: column;
+        padding: 0 10px 10px 10px;
+    }
+
+    .columna img {
+        height: 220px; /* más alto en móvil porque son más anchas */
+    }
+
+    #lightbox img {
+        max-width: 95%;
+    }
+
+    .btn-musica {
+        width: 90%;
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    #pantallaSecreta input {
+        width: 60%;
+        margin-bottom: 8px;
+    }
+}
